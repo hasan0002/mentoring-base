@@ -7,7 +7,6 @@
     gap: 10px;
     justify-content: space-between;
     align-items: center;
-    //padding: 0 220px;
     max-width: 1920px;
 }
 
@@ -88,7 +87,6 @@
 
 .input::placeholder{
     color: #4B565E99;
-    //opacity: 0.4;
 }
 
 .location{
@@ -291,9 +289,6 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 28px;
-    
-    //transform: translateX(0%);
-    //transform: translateY(0%);
 }
 
 .swipe-products{
@@ -302,7 +297,6 @@
     justify-content: space-between;
     position: relative;
 }
-
 
 .swipe-products__button-left{
     width: 60px;
@@ -322,8 +316,6 @@
     align-items: center;
     justify-content: center;
     background-position: 18px 18px;
-    //margin-top: 182px;
-    //margin-left: -45px;
 }
 
 .swipe-products__button-right{
