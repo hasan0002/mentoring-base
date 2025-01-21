@@ -1,51 +1,56 @@
 <div class="header">
-    <div class="header-left content-container" >
-        <div class="header-logo">
-            <img src="assets/Frame.svg" alt="logo">
+    <div class="content-container-header">
+        <div class="header-left">
+            <div>
+                <img src="assets/Frame.svg" alt="logo">
+            </div>
+            <nav class="header-nav">
+                <div class="header-nav-item">{{Header1Item1}}</div>
+                <div class="header-nav-item">{{Header12.name}}</div>
+                <div class="header-nav-item" *ngIf = "isShowCatalog">{{Header1Item3}}</div>
+            </nav>
+            <div>
+                <button type="button" (click)="isShowCatalog = !isShowCatalog">Скрыть/Показать Каталог</button>
+                <button type="button" (click)="changeMenuText()">Изменить текст</button>
+            </div>
         </div>
-        <nav class="header-nav">
-            <div class="header-nav-item">Главная</div>
-            <div class="header-nav-item">О компании</div>
-            <div class="header-nav-item">Каталог</div>
-        </nav>
-    </div>
-    <div class="header-right content-container" style="margin-right: 240px;">
-        <div class="header-tel">
-            <img src="/assets/Phone.svg" alt="Phone">
-            <p>+7 (965) 084-29-29</p>
-        </div>
-        <img src="/assets/heart 1.svg" alt="">
-        <button  type="button" class="button-empty">
-            <img src="/assets/cart.svg" alt="Save icon" class="buy-icon"/>
-            Пусто
-        </button>
-    </div>
-</div>
-
-<div class="header-yellow">
-    <div class="header-right">
-        <img src="/assets/light.svg" alt="">
-        <p class="margin-left-catalog">Каталог</p>
-        <nav class="header-nav">
-            <div class="header-nav-item">Стройматериалы</div>
-            <div class="header-nav-item">Инструменты</div>
-            <div class="header-nav-item">Электрика</div>
-            <div class="header-nav-item">Интерьер и одежда</div>
-        </nav>
-    </div>
-    
-    <div class="header-left div-margin-right">
-        <div>
-            <input placeholder="Поиск, например Круг зачистной" class="input">
-        </div>
-        <div class="location">
-            <img src="/assets/map-pin (2) 1.svg" alt="" style="margin-right: 4px;">
-            <p>Москва</p>
+        <div class="header-right">
+            <div class="header-tel">
+                <img src="/assets/Phone.svg" alt="Phone" style="margin-right: 10px;">
+                <p>+7 (965) 084-29-29</p>
+            </div>
+            <img src="/assets/heart 1.svg" alt="">
+            <button  type="button" class="button-empty">
+                <img src="/assets/cart.svg" alt="Save icon" class="buy-icon"/>
+                Пусто
+            </button>
         </div>
     </div>
 </div>
 
-<img src="/assets/баннер.png" alt="" width= 1920px>
+<div class="header-yellow ">
+    <div class="content-container-header">
+        <div class="header-left2">
+            <img src="/assets/light.svg" alt="">
+            <nav class="header-nav">
+                <div class="header-nav-item" *ngFor="let item of menuItems">{{item}}</div>
+            </nav>
+            
+        </div>
+        <div class="header-left">
+            <div>
+                <input placeholder="Поиск, например Круг зачистной" class="input">
+            </div>
+            <div class="location">
+                <img src="/assets/map-pin (2) 1.svg" alt="" style="margin-right: 4px;">
+                <p>Москва</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" (click)="isShowPhoto = !isShowPhoto">Скрыть/Показать картинку</button>
+<img src="/assets/баннер.png" alt="" width= 1920px *ngIf="isShowPhoto">
 
 <div class="content-container">
     <div class="advantage-shop" style="margin-bottom: 28px; margin-top: 28px;">
@@ -63,12 +68,10 @@
         </div>
     </div>
     <div class="item-cards">
-        <div class="item-cards__pagination">
-            <button type="button" class="item-cards__pagination-button active-button">1</button>
-            <button type="button" class="item-cards__pagination-button">2</button>
-            <button type="button" class="item-cards__pagination-button">3</button>
-            <button type="button" class="item-cards__pagination-button">4</button>
-            <button type="button" class="item-cards__pagination-button">5</button>
+        <div  class="item-cards__pagination">
+            <button type="button" class="item-cards__pagination-button active-button" 
+            *ngFor="let itemCount of newPages" >{{itemCount}}</button>
+            
         </div>
         <div class="item-cards__grid">
             <div class="item-cards__grid-left">
@@ -447,8 +450,8 @@
                             </div>
                         </div>
 
-                        <div class="quest-feedback">
-                            <div class="span-questions-description">
+                        <div class="quest-feedback" style=" width: 534px; margin: 0px 600px 0px 0px;">
+                            <div class="span-questions-description ">
                                 <span class="any-questions-text">Остались вопросы?</span>
                                 <span class="description-text">Узнавайте первым о скидках, предложениях и 
                                     событиях еженедельно в своем почтовом ящике. 
