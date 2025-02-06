@@ -1,0 +1,33 @@
+.content-container{
+    width: 1320px;
+    margin: 0 auto;
+}
+
+.user-block{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.user-block__item{
+    width: 309px;
+    height: 429px;
+    margin: 0;
+    padding: 24px;
+    box-shadow: 0px 20px 50px 0px #12112714
+}
+
+.delete-user{
+    width: 135px;
+    height: 47px;
+    border: none;
+    border-color: #F0BA4E;
+    border-style: solid;
+    background-color: #fff;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    border-width: 1px;
+    cursor: pointer;
+}
