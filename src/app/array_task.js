@@ -15,7 +15,6 @@ fetch("https://jsonplaceholder.typicode.com/users").then(function (response) {
     // usersMore12(usersData);
     // lowCaseUsers(usersData)
   });
-
 // 1 способ
 // 1 task
 function outputIDusername(usersData){
