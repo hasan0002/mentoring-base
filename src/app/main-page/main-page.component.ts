@@ -7,7 +7,7 @@ import { FooterBlockComponent } from "../footer-block/footer-block.component";
 @Component({
     selector: 'app-main-page',
     standalone: true,
-    imports:[RouterOutlet,NgFor, NgIf, HeaderComponent,FooterBlockComponent],
+    imports:[RouterOutlet,NgFor, NgIf],
     templateUrl: 'main-page.component.html',
     styleUrl: 'main-page.component.scss',
 })

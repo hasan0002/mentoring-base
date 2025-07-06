@@ -1,17 +1,10 @@
-КОМПОНЕНТ СПИСКА ЮЗЕРОВ
-
-<div class="user-block content-container" >
-    <div *ngFor="let item of users" class="user-block__item">
-        <p>{{item.name}}</p>
-        <p>{{item.username}}</p>  
-        <p>{{item.email}}</p>
-        <p>{{item.address.city}}</p>
-        <p>{{item.website}}</p>
-        <p>{{item.company.name}}</p>
-        <p>{{item.address.geo.lat}}</p>
-        <button (click)="deleteUser(item.id)" class="delete-user">Удалить юзера</button>
+<div class="content-container">
+    <create-user-form (createUser)="createUser($event)"></create-user-form>
+    <div class="user-block" >
+        <div *ngFor="let item of usersService.users$ | async">
+            <app-user-card [user]="item" (deleteUser)="deleteUser($event)"></app-user-card>
+        </div>
     </div>
 </div>
-
 
 

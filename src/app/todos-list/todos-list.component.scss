@@ -3,7 +3,14 @@
     margin: 0 auto;
 }
 
-.user-block{
+.item-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.form-block{
     display: flex;
     flex-wrap: wrap;
     gap: 25px;

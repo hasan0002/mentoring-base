@@ -4,10 +4,11 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { FooterBlockComponent } from './footer-block/footer-block.component';
 import { NgModule } from '@angular/core';
+import { TodosListComponent } from './todos-list/todos-list.component';
 
 export const routes: Routes = [
     {path:'',component:MainPageComponent},
-    {path: 'users', component: UsersListComponent,}
-
+    {path: 'users', component: UsersListComponent,},
+    {path: 'todos', component: TodosListComponent,}
     
 ];

@@ -1,14 +1,17 @@
-import { Component, inject, input} from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { NgFor } from "@angular/common";
+import { ChangeDetectionStrategy, Component, inject, input} from "@angular/core";
+import { AsyncPipe, NgFor } from "@angular/common";
 import { isNgTemplate } from "@angular/compiler";
+import { UsersApiService } from "../users-api.service";
+import { UserCardComponent } from "./user-card/user-card.component";
+import { usersService } from "../users.service";
+import { CreateUserFormComponent } from "../create-user-form/create-user-form.component";
 
-interface Users {
+export interface User {
     id:        number;
     name:      string;
-    username:  string,
+    username?:  string,
     email:     string,
-    address: {
+    address?: {
         street:   string,
         suite:    string,
         city:     string,
@@ -18,39 +21,53 @@ interface Users {
             lng: number
       }
     },
-    phone:   number,
+    phone?:   number,
     website: string,
     company: {
         name:        string,
-        catchPhrase: string,
-        bs:          string
+        catchPhrase?: string,
+        bs?:          string
     }
 }
 
 @Component({
     selector: "app-users-list",
-    imports: [NgFor],
+    imports: [NgFor,UserCardComponent, AsyncPipe, CreateUserFormComponent],
     templateUrl: './users-list.component.html',
     styleUrl: './users-list.component.scss',
     standalone: true,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class UsersListComponent{
-    readonly apiService = inject(HttpClient);
-    
-    users: Users[] = [];
+    readonly usersApiService = inject(UsersApiService);
+    readonly usersService = inject(usersService);
 
     constructor(){
-        this.apiService.get<Users[]>('https://jsonplaceholder.typicode.com/users').subscribe(
-            (response) => {
-                this.users = response;
-                console.log('USERS: ', this.users);
+        this.usersApiService.getUsers().subscribe(
+            (response: any) => {
+                this.usersService.setUsers(response);
             }
         )
-    }
-    deleteUser(id: number){
-        this.users = this.users.filter(
-            item => (id === item.id) ? false : true
+
+        this.usersService.users$.subscribe(
+            users => console.log(users)
+            
         )
+    }
+    public deleteUser(id: number){
+        this.usersService.deleteUser(id)
+    }
+    public createUser(formData: User){
+        this.usersService.createUser({
+            id: new Date().getTime(),
+            name: formData.name,
+            email: formData.email,
+            website: formData.website,
+            company:{
+                name: formData.name,
+            }
+        });
+        console.log('DATA FORM',event);
     }
 }

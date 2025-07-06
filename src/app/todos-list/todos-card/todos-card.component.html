@@ -1,0 +1,12 @@
+<div class="todos-block__item">
+
+    <p>ТЕКСТ ЗАДАЧИ</p>
+    <div>{{todos.title}}</div>
+    <p>АВТОР ЗАДАЧИ</p>
+    <div>{{todos.userId}}</div>
+    <p>ЗАДАЧА ЗАВЕРШЕНА</p>
+    <div>{{todos.completed ? 'да' : 'нет'}}</div>
+
+    <button style="margin-top: 20px;" (click)=onDeleteTodos(todos.id)>
+        УДАЛИТЬ ЗАДАЧУ</button>
+</div>

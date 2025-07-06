@@ -1,0 +1,17 @@
+.user-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input{
+    width: 200px;
+}
+
+.create-button{
+    width: 150px;
+    margin-top: 20px;
+}
+
+.alert{
+    color: red;
+}
