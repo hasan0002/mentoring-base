@@ -36,7 +36,6 @@ export interface User {
     templateUrl: './users-list.component.html',
     styleUrl: './users-list.component.scss',
     standalone: true,
-    // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class UsersListComponent{
@@ -52,12 +51,13 @@ export class UsersListComponent{
 
         this.usersService.users$.subscribe(
             users => console.log(users)
-            
         )
     }
+
     public deleteUser(id: number){
-        this.usersService.deleteUser(id)
+        this.usersService.deleteUser(id);
     }
+
     public createUser(formData: User){
         this.usersService.createUser({
             id: new Date().getTime(),
@@ -68,6 +68,5 @@ export class UsersListComponent{
                 name: formData.name,
             }
         });
-        console.log('DATA FORM',event);
     }
 }

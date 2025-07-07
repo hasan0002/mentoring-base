@@ -14,16 +14,15 @@ export class usersService {
     editUser(editedUser: User){
         this.usersSubject$.next(
             this.usersSubject$.value.map(
-                user => (user.id === editedUser.id) ? editedUser : user
+                (user: User) => (user.id === editedUser.id) ? editedUser : user
             )
         )
     }
 
     createUser(addUser: User){
-        const userExisting = this.usersSubject$.value.find(
-            currentElement => currentElement.email === addUser.email
+        const userExisting: User | undefined = this.usersSubject$.value.find(
+            (currentElement: User) => currentElement.email === addUser.email
         )
-        //console.log(userExisting)
         if(userExisting){
             alert('ТАКОЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН');
         }
@@ -31,15 +30,13 @@ export class usersService {
             this.usersSubject$.next(
             [...this.usersSubject$.value, addUser]
         ) 
-        alert('НОВЫЙ ПОЛЬЗОВАТЕЛЬ УСПЕШНО ДОБАВЛЕН');
+            alert('НОВЫЙ ПОЛЬЗОВАТЕЛЬ УСПЕШНО ДОБАВЛЕН');
         }
-        
     }
 
     deleteUser(idUser: number){
-         this.usersSubject$.next(
-            this.usersSubject$.value.filter(
-                item => (idUser === item.id) ? false :  true
+         this.usersSubject$.next(this.usersSubject$.value.filter(
+                (item: User) => (idUser === item.id) ? false :  true
             )
          )
     }

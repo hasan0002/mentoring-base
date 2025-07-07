@@ -1,19 +1,19 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Todo } from "../todos-list.component";
 
 @Component({
     selector: 'app-todos-card',
     templateUrl: './todos-card.component.html',
     styleUrl: './todos-card.component.scss',
     standalone: true,
-    imports: [],
 })
 
 export class TodosCardComponent{
     @Input()
-    todos: any;
+    todos!: Todo;
 
     @Output()
-    deleteTodos = new EventEmitter()
+    deleteTodos = new EventEmitter<number>()
     
 
     onDeleteTodos(id: number){

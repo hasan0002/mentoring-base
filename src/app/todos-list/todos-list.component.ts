@@ -27,18 +27,13 @@ export class TodosListComponent{
 
     constructor(){
         this.todosApiService.getTodos().subscribe(
-            (response: any) => {
+            (response: Todo[]): void => {
                 this.todoService.setTodo(response);
             }
         )
-        /*this.todoService.todo$.subscribe(
-            todo => console.log(todo)
-            
-        )*/
     }
 
     createTodos(formData: Todo){
-        console.log(formData);
         this.todoService.createTodo({
             id: new Date().getTime(),
             userId: formData.userId,
@@ -50,5 +45,4 @@ export class TodosListComponent{
     deleteTodos(id: number){
         this.todoService.deleteTodo(id);
     }
-
 }

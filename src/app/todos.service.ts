@@ -22,7 +22,7 @@ export class TodosService{
 
     createTodo(addTodo: Todo)
     {
-        const userExisting = this.TodosService$.value.find(
+        const userExisting:Todo | undefined = this.TodosService$.value.find(
             currentElement => currentElement.title === addTodo.title
         )
         if(userExisting)
@@ -35,13 +35,12 @@ export class TodosService{
             )
             alert('НОВАЯ ЗАДАЧА УСПЕШНО ДОБАВЛЕНА');
         }
-        
     }
 
     deleteTodo(id: number){
         this.TodosService$.next(
             this.TodosService$.value.filter(
-                item => (item.id === id) ? false : true
+                (item: Todo) => (item.id === id) ? false : true
             )
         )
     }

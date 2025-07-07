@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { User, UsersListComponent } from "../users-list.component";
 
 
 @Component({
@@ -10,13 +11,12 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 export class UserCardComponent{
     @Input()
-    user: any;
+    user!: User;
 
     @Output()
-    deleteUser = new EventEmitter() 
+    deleteUser = new EventEmitter<number>() 
 
     onDeleteUser(userId: number){
         this.deleteUser.emit(userId)
-
     }
 }
