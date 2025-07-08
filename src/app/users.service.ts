@@ -27,16 +27,14 @@ export class usersService {
             alert('ТАКОЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН');
         }
         else{
-            this.usersSubject$.next(
-            [...this.usersSubject$.value, addUser]
-        ) 
+            this.usersSubject$.next([...this.usersSubject$.value, addUser]) 
             alert('НОВЫЙ ПОЛЬЗОВАТЕЛЬ УСПЕШНО ДОБАВЛЕН');
         }
     }
 
     deleteUser(idUser: number){
          this.usersSubject$.next(this.usersSubject$.value.filter(
-                (item: User) => (idUser === item.id) ? false :  true
+                (user: User) => idUser !== user.id
             )
          )
     }

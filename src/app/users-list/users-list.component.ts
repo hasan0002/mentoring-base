@@ -49,9 +49,7 @@ export class UsersListComponent{
             }
         )
 
-        this.usersService.users$.subscribe(
-            users => console.log(users)
-        )
+        this.usersService.users$.subscribe()
     }
 
     public deleteUser(id: number){

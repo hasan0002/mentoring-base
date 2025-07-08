@@ -25,14 +25,11 @@ export class TodosService{
         const userExisting:Todo | undefined = this.TodosService$.value.find(
             currentElement => currentElement.title === addTodo.title
         )
-        if(userExisting)
-        {
+        if(userExisting){
             alert('ТАКАЯ ЗАДАЧА УЖЕ ЕСТЬ');
         }
         else{
-            this.TodosService$.next(
-                [...this.TodosService$.value,addTodo]
-            )
+            this.TodosService$.next([...this.TodosService$.value,addTodo])
             alert('НОВАЯ ЗАДАЧА УСПЕШНО ДОБАВЛЕНА');
         }
     }
@@ -40,7 +37,7 @@ export class TodosService{
     deleteTodo(id: number){
         this.TodosService$.next(
             this.TodosService$.value.filter(
-                (item: Todo) => (item.id === id) ? false : true
+                (todo: Todo) => todo.id !== id
             )
         )
     }
