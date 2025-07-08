@@ -48,8 +48,6 @@ export class UsersListComponent{
                 this.usersService.setUsers(response);
             }
         )
-
-        this.usersService.users$.subscribe()
     }
 
     public deleteUser(id: number){

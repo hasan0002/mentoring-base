@@ -20,15 +20,13 @@ export class TodosService{
         )
     }
 
-    createTodo(addTodo: Todo)
-    {
+    createTodo(addTodo: Todo){
         const userExisting:Todo | undefined = this.TodosService$.value.find(
-            currentElement => currentElement.title === addTodo.title
-        )
-        if(userExisting){
+            (currentElement: Todo) => currentElement.title === addTodo.title
+        );
+        if(userExisting) {
             alert('ТАКАЯ ЗАДАЧА УЖЕ ЕСТЬ');
-        }
-        else{
+        } else {
             this.TodosService$.next([...this.TodosService$.value,addTodo])
             alert('НОВАЯ ЗАДАЧА УСПЕШНО ДОБАВЛЕНА');
         }

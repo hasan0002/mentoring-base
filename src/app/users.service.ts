@@ -22,11 +22,10 @@ export class usersService {
     createUser(addUser: User){
         const userExisting: User | undefined = this.usersSubject$.value.find(
             (currentElement: User) => currentElement.email === addUser.email
-        )
-        if(userExisting){
+        );
+        if(userExisting) {
             alert('ТАКОЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН');
-        }
-        else{
+        } else {
             this.usersSubject$.next([...this.usersSubject$.value, addUser]) 
             alert('НОВЫЙ ПОЛЬЗОВАТЕЛЬ УСПЕШНО ДОБАВЛЕН');
         }
