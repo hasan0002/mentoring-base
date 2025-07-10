@@ -1,6 +1,7 @@
-import { NgIf } from "@angular/common";
 import { Component, EventEmitter, Output } from "@angular/core";
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
 
 export function completedValidator(): ValidatorFn{
     return  (control: AbstractControl): ValidationErrors | null => {
@@ -17,7 +18,7 @@ export function completedValidator(): ValidatorFn{
     templateUrl: './create-todos-form.component.html',
     styleUrl: './create-todos-form.component.scss',
     standalone: true,
-    imports: [ReactiveFormsModule,NgIf],
+    imports: [ReactiveFormsModule, MatButtonModule, MatInputModule],
 })
 
 export class createTodosFormComponent{

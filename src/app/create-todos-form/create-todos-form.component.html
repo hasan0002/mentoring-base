@@ -1,27 +1,29 @@
 <div style="margin: 30px 30px 30px 0;">
     <form class="Form" (ngSubmit)="submitForm()" [formGroup]="form">
-        
-        <p>ТЕКСТ ЗАДАЧИ</p>
-        <input type="text" formControlName="title">
-        <div *ngIf="form.controls['title'].invalid && (form.controls['title']).dirty || form.controls['title'].touched"
-      class="alert">
-            <div *ngIf="form.controls['title'].errors">ТЕКСТ ЗАДАЧИ ВВЕДЕН НЕПРАВИЛЬНО</div>
-        </div>
-        
-        <p>АВТОР ЗАДАЧИ</p>
-        <input type="text" formControlName="userId">
-        <div *ngIf="form.controls['userId'].invalid && (form.controls['userId']).dirty || form.controls['userId'].touched"
-      class="alert">
-            <div *ngIf="form.controls['userId'].errors">АВТОР ЗАДАЧИ ВВЕДЕН НЕПРАВИЛЬНО</div>
-        </div>
-        
-        <p>ЗАДАЧА ЗАВЕРШЕНА</p>
-        <input type="text" formControlName="completed">
-        <div *ngIf="form.controls['completed'].invalid && (form.controls['completed']).dirty || form.controls['completed'].touched"
-      class="alert">
-            <div *ngIf="form.controls['completed'].errors">СТАТУС МОЖЕТ БЫТЬ "ДА" ИЛИ "НЕТ"</div>
-        </div>
+        <mat-form-field>
+            <input matInput type="text" formControlName="title">
+            <mat-label>ТЕКСТ ЗАДАЧИ</mat-label>
+            @if (form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)) {
+                <mat-error>Пожалуйста, введите <strong>текст задачи</strong> корректно</mat-error>
+            }
+        </mat-form-field>
 
-        <button class="btn-form" [disabled]="form.invalid">CREATE TODOS</button>
+        <mat-form-field>
+            <input matInput type="text" formControlName="userId">
+            <mat-label>АВТОР ЗАДАЧИ</mat-label>
+            @if (form.controls['userId'].invalid && (form.controls['userId'].dirty || form.controls['userId'].touched)) {
+                <mat-error>Пожалуйста, введите <strong>автора задачи</strong> корректно</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" formControlName="completed">
+            <mat-label>ЗАДАЧА ЗАВЕРШЕНА</mat-label>
+            @if (form.controls['completed'].invalid && (form.controls['completed'].dirty || form.controls['completed'].touched)) {
+                <mat-error>СТАТУС МОЖЕТ БЫТЬ <strong>"ДА"</strong> ИЛИ <strong>"НЕТ"</strong></mat-error>
+            }
+        </mat-form-field>
+
+        <button mat-button class="btn-form" [disabled]="form.invalid">+ ADD TODO</button>
     </form>
 </div>

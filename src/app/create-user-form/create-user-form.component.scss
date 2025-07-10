@@ -1,17 +1,13 @@
 .user-form{
     display: flex;
     flex-direction: column;
-}
-
-.form-input{
-    width: 200px;
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
 }
 
 .create-button{
+    background-color: #ebe8e8;
     width: 150px;
     margin-top: 20px;
-}
-
-.alert{
-    color: red;
 }
