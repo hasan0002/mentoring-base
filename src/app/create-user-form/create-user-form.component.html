@@ -4,33 +4,25 @@
       <mat-form-field>
          <input matInput type="text" formControlName="name" placeholder="Ex. Ivan">
          <mat-label>NAME</mat-label>
-         @if (form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)) {
-            <mat-error>Пожалуйста, введите <strong>имя</strong> корректно</mat-error>
-         }
+         <mat-error>Пожалуйста, введите <strong>имя</strong> корректно</mat-error>
       </mat-form-field>
       
       <mat-form-field>
          <input matInput type="text" formControlName="email" placeholder="Ex. hasan@gmail.com">
          <mat-label>EMAIL</mat-label>
-         @if (form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)) {
-            <mat-error>Пожалуйста, введите <strong>email</strong> корректно</mat-error>
-         }
+         <mat-error>Пожалуйста, введите <strong>email</strong> корректно</mat-error>
       </mat-form-field>
       
       <mat-form-field>
          <input matInput type="text" formControlName="website" placeholder="Ex. google.com">
          <mat-label>WEBSITE</mat-label>
-         @if (form.controls['website'].invalid && (form.controls['website'].dirty || form.controls['website'].touched)) {
-            <mat-error>Пожалуйста, введите <strong>website</strong> корректно</mat-error>
-         }
+         <mat-error>Пожалуйста, введите <strong>website</strong> корректно</mat-error>
       </mat-form-field>
 
       <mat-form-field>
          <input matInput type="text" formControlName="companyName" placeholder="Ex. ООО 'БНАЛ'">
          <mat-label>COMPANY NAME</mat-label>
-         @if (form.controls['companyName'].invalid && (form.controls['companyName'].dirty || form.controls['companyName'].touched)) {
-            <mat-error>Пожалуйста, введите <strong>название компании</strong> корректно</mat-error>
-         }
+         <mat-error>Пожалуйста, введите <strong>название компании</strong> корректно</mat-error>
       </mat-form-field>
 
       <button mat-button="elevated" class="create-button" [disabled]="form.invalid">+ CREATE USER</button>
