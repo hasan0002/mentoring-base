@@ -1,6 +1,5 @@
-<h1>CREATE USER FORM</h1>
-<div style="margin: 30px 30px 30px 0;">
-   <form class="user-form" [formGroup]="form" (ngSubmit)="submitForm()">
+<h2 mat-dialog-title>{{ isEditMode ? 'Редактировать пользователя' : 'Создать пользователя' }}</h2>
+<form class="user-form" [formGroup]="form">
       <mat-form-field>
          <input matInput type="text" formControlName="name" placeholder="Ex. Ivan">
          <mat-label>NAME</mat-label>
@@ -24,7 +23,9 @@
          <mat-label>COMPANY NAME</mat-label>
          <mat-error>Пожалуйста, введите <strong>название компании</strong> корректно</mat-error>
       </mat-form-field>
-
-      <button mat-button="elevated" class="create-button" [disabled]="form.invalid">+ CREATE USER</button>
-   </form>
-</div>
+      <button mat-button (click)="onCancel()">Отмена</button>
+      <button mat-raised-button color="primary" [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields">
+        {{ isEditMode ? 'Сохранить' : 'Создать' }}
+        </button>
+      <!-- <button mat-button="elevated" class="create-button" [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields">Редактировать юзера</button> -->
+</form>

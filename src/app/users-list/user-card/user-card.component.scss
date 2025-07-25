@@ -1,4 +1,6 @@
 .user-block__item{
+    display: flex;
+    flex-direction: column;
     width: 309px;
     height: 429px;
     margin: 0;
@@ -7,7 +9,23 @@
 }
 
 .delete-user{
-    width: 135px;
+    width: 150px;
+    height: 47px;
+    border: none;
+    border-color: #F0BA4E;
+    border-style: solid;
+    background-color: #fff;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.create-button{
+    margin-top: 20px;
+    width: 150px;
     height: 47px;
     border: none;
     border-color: #F0BA4E;
