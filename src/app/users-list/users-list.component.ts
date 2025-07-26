@@ -24,9 +24,16 @@ export class UsersListComponent{
     openDialog(): void {
         const dialogRef = this.dialog.open(CreateEditUserDialogComponent);
         
-        dialogRef.afterClosed().subscribe((Createresult : User) =>{
-            console.log('The dialog was closed', Createresult);
-            this.usersService.createUser(Createresult);
+        dialogRef.afterClosed().subscribe((createResult : User) =>{
+                this.usersService.createUser({
+                id: new Date().getTime(),
+                name: createResult.name,
+                email: createResult.email,
+                website: createResult.website,
+                company:{
+                    name: createResult.company.name,
+                }
+            });
         });
    }
 
@@ -47,19 +54,6 @@ export class UsersListComponent{
             ...user,
             company:{
                 name: user.company.name
-            }
-        });
-        // console.log(user.company.name)
-    }
-
-    public createUser(formData: User){
-        this.usersService.createUser({
-            id: new Date().getTime(),
-            name: formData.name,
-            email: formData.email,
-            website: formData.website,
-            company:{
-                name: formData.company.name,
             }
         });
     }

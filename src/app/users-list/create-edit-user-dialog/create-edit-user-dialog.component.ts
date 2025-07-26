@@ -22,7 +22,6 @@ export class CreateEditUserDialogComponent{
 
     isEditMode = this.data?.isEditMode;
 
-
     public form = new FormGroup({
         name: new FormControl(this.data?.user.name,[Validators.required, Validators.minLength(3)]),
         email: new FormControl(this.data?.user.email,[Validators.required, Validators.email]),
@@ -30,16 +29,7 @@ export class CreateEditUserDialogComponent{
         companyName: new FormControl(this.data?.user.company.name,[Validators.required, Validators.minLength(2)]),
     });
 
-    get userWithUpdatedFields(): {
-        name?:string | null, 
-        email?:string | null, 
-        website?:string | null,  
-        id: number | null,
-        company?: {
-            name?: string | null 
-        } 
-        
-    }{
+    get userWithUpdatedFields(){
         return {
             ...this.form?.value,
             id: this.data?.user.id,
@@ -51,11 +41,11 @@ export class CreateEditUserDialogComponent{
 
     onSubmit(): void {
         if (this.form.valid) {
-            this.dialogRef.close(this.form.value); // Возвращаем данные формы
+            this.dialogRef.close(this.form.value); 
         } 
     }
 
     onCancel(): void {
-        this.dialogRef.close(); // Закрываем без сохранения
+        this.dialogRef.close(); 
     }
 }

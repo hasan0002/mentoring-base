@@ -1,7 +1,5 @@
 <div class="content-container">
     <button mat-button="elevated" class="create-button" (click)="openDialog()">+ CREATE USER</button>
-    <!-- <create-user-form (createUser)="createUser($event)"></create-user-form> -->
-     <!-- <app-create-edit-user-dialog (createEditUser)="createUser($event)"></app-create-edit-user-dialog> -->
     <div class="user-block" >
         <div *ngFor="let user of usersService.users$ | async">
             <app-user-card [user]="user" (deleteUser)="deleteUser($event)" (editUser)="editUser($event)" ></app-user-card>

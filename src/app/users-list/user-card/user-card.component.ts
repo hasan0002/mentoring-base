@@ -28,13 +28,12 @@ export class UserCardComponent{
 
     openDialog(): void {
     const dialogRef = this.dialog.open(CreateEditUserDialogComponent, {
-      data: {user: this.user, isEditMode: this.isEditMode},
+      data: { user: this.user, isEditMode: this.isEditMode },
     });
     
-    dialogRef.afterClosed().subscribe((Editresult : User) =>{
-        console.log('The dialog was closed', Editresult);
-        if(!Editresult) return;
-        this.editUser.emit(Editresult);
+    dialogRef.afterClosed().subscribe((editResult : User) =>{
+        if(!editResult) return;
+        this.editUser.emit(editResult);
     });
   }
 
