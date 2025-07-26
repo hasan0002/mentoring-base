@@ -1,11 +1,9 @@
-import { Injectable, inject} from "@angular/core";
-import {SnackBarService} from './snackbar.service';
+import { Injectable } from "@angular/core";
 import { User } from "./user-interface.component"
 import { BehaviorSubject, map } from "rxjs";
 
 @Injectable({providedIn: 'root'})
 export class usersService {
-    private _snackBar = inject(SnackBarService);
     private usersSubject$ = new BehaviorSubject<User[]>([]);
     users$ = this.usersSubject$.asObservable();
 
@@ -19,7 +17,6 @@ export class usersService {
                 (user: User) => (user.id === editedUser.id) ? editedUser : user
             )
         )
-        this._snackBar.openSnackBar(`Пользователь успешно отредактирован!`, 'Закрыть');
     }
 
     createUser(addUser: User){
@@ -30,7 +27,6 @@ export class usersService {
             alert('ТАКОЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН');
         } else {
             this.usersSubject$.next([...this.usersSubject$.value, addUser]) 
-            this._snackBar.openSnackBar(`Пользователь ${addUser.name} успешно создан!`, 'Закрыть');
         }
     }
 
@@ -39,6 +35,5 @@ export class usersService {
                 (user: User) => idUser !== user.id
             )
          )
-        this._snackBar.openSnackBar(`Пользователь успешно удален!`, 'Закрыть');
     }
 }

@@ -7,6 +7,7 @@ import { User } from "../user-interface.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CreateEditUserDialogComponent } from "./create-edit-user-dialog/create-edit-user-dialog.component";
+import { SnackBarService } from '../snackbar.service';
 
 @Component({
     selector: "app-users-list",
@@ -17,6 +18,7 @@ import { CreateEditUserDialogComponent } from "./create-edit-user-dialog/create-
 })
 
 export class UsersListComponent{
+    readonly _snackBar = inject(SnackBarService);
     readonly usersApiService = inject(UsersApiService);
     readonly usersService = inject(usersService);
     readonly dialog = inject(MatDialog);
@@ -34,6 +36,7 @@ export class UsersListComponent{
                     name: createResult.company.name,
                 }
             });
+            this._snackBar.openSnackBar(`Пользователь ${createResult.name} успешно создан!`, 'Закрыть');
         });
    }
 
@@ -47,6 +50,7 @@ export class UsersListComponent{
 
     public deleteUser(id: number){
         this.usersService.deleteUser(id);
+        this._snackBar.openSnackBar(`Пользователь успешно удален!`, 'Закрыть');
     }
 
      public editUser(user: User){
@@ -56,5 +60,6 @@ export class UsersListComponent{
                 name: user.company.name
             }
         });
+        this._snackBar.openSnackBar(`Пользователь успешно отредактирован!`, 'Закрыть');
     }
 }
