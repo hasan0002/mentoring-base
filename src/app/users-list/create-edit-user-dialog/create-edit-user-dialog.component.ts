@@ -26,16 +26,15 @@ export class CreateEditUserDialogComponent{
         name: new FormControl(this.data?.user.name,[Validators.required, Validators.minLength(3)]),
         email: new FormControl(this.data?.user.email,[Validators.required, Validators.email]),
         website: new FormControl(this.data?.user.website,[Validators.required, Validators.minLength(3)]),
-        companyName: new FormControl(this.data?.user.company.name,[Validators.required, Validators.minLength(2)]),
+        company: new FormGroup({
+            name: new FormControl(this.data?.user.company.name,[Validators.required, Validators.minLength(2)]),
+        })
     });
 
     get userWithUpdatedFields(){
         return {
-            ...this.form?.value,
             id: this.data?.user.id,
-            company: {
-                 name: this.form?.value.companyName
-            }
+            ...this.form?.value,
         }
     }
 

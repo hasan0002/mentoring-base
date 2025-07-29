@@ -17,12 +17,15 @@
          <mat-label>WEBSITE</mat-label>
          <mat-error>Пожалуйста, введите <strong>website</strong> корректно</mat-error>
       </mat-form-field>
-
-      <mat-form-field>
-         <input matInput type="text" formControlName="companyName" placeholder="Ex. ООО 'БНАЛ'">
-         <mat-label>COMPANY NAME</mat-label>
-         <mat-error>Пожалуйста, введите <strong>название компании</strong> корректно</mat-error>
-      </mat-form-field>
+      
+      <div formGroupName="company">
+         <mat-form-field>
+            <input matInput type="text" formControlName="name" placeholder="Ex. ООО 'БНАЛ'">
+            <mat-label>COMPANY NAME</mat-label>
+            <mat-error>Пожалуйста, введите <strong>название компании</strong> корректно</mat-error>
+         </mat-form-field>
+      </div>
+      
       <button mat-button (click)="onCancel()">Отмена</button>
       <button mat-raised-button color="primary" [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields">
         {{ isEditMode ? 'Сохранить' : 'Создать' }}

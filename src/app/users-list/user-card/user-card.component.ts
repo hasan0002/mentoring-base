@@ -3,13 +3,14 @@ import { User } from "../../user-interface.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialog } from '@angular/material/dialog';
 import { CreateEditUserDialogComponent } from "../create-edit-user-dialog/create-edit-user-dialog.component";
+import { DashPipe } from "../../pipes/dash.pipe";
 
 
 @Component({
     selector: 'app-user-card',
     templateUrl: './user-card.component.html',
     styleUrl: './user-card.component.scss',
-    imports: [MatButtonModule],
+    imports: [MatButtonModule, DashPipe],
     standalone: true,
 })
 
@@ -40,6 +41,4 @@ export class UserCardComponent{
    onDeleteUser(userId: number){
         this.deleteUser.emit(userId)
     }
-
-
 }

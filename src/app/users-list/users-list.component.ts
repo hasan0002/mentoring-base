@@ -28,13 +28,14 @@ export class UsersListComponent{
         
         dialogRef.afterClosed().subscribe((createResult : User) =>{
                 this.usersService.createUser({
-                id: new Date().getTime(),
-                name: createResult.name,
-                email: createResult.email,
-                website: createResult.website,
-                company:{
-                    name: createResult.company.name,
-                }
+                    id: new Date().getTime(),
+                    name: createResult.name,
+                    email: createResult.email,
+                    website: createResult.website,
+                    phone: createResult.phone,
+                    company:{
+                        name: createResult.company.name,
+                    }
             });
             this._snackBar.openSnackBar(`Пользователь ${createResult.name} успешно создан!`, 'Закрыть');
         });
