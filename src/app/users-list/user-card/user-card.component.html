@@ -3,7 +3,7 @@
     <p>{{ user.email }}</p>
     <p>{{ user.website }}</p>
     <p>{{ user.company.name }}</p>
-    <p>{{ user.phone | dashPipe}}</p>
+    <p>{{ user.phone | dashPipe }}</p>
     
     <button (click)=onDeleteUser(user.id) class="delete-user">Удалить юзера</button>
     <button mat-button="elevated" class="create-button" (click)="openDialog()">Редактировать юзера</button>

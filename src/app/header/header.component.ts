@@ -7,7 +7,7 @@ function CreateField(MenuItem:string)
 {
   return MenuItem;
 }
-const MenuItemm:string = CreateField('О компании');
+const MenuItem:string = CreateField('О компании');
 
 
 @Component({
@@ -24,7 +24,7 @@ export class HeaderComponent{
     readonly Header1Item2: string = 'О компании';
     readonly Header1Item3: string = 'Каталог';
     
-    readonly Header12: string = MenuItemm; //1 task
+    readonly Header12: string = MenuItem; //1 task
 
   isShowPhoto = true; // 2 task
 
@@ -39,5 +39,5 @@ export class HeaderComponent{
     this.isUpperCase = !this.isUpperCase;
   }
   
-  myDate = new Date();
+  myDate: Date = new Date();
 }

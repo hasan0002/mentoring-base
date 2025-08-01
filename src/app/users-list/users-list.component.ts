@@ -26,18 +26,18 @@ export class UsersListComponent{
     openDialog(): void {
         const dialogRef = this.dialog.open(CreateEditUserDialogComponent);
         
-        dialogRef.afterClosed().subscribe((createResult : User) =>{
+        dialogRef.afterClosed().subscribe((createUser : User) =>{
                 this.usersService.createUser({
                     id: new Date().getTime(),
-                    name: createResult.name,
-                    email: createResult.email,
-                    website: createResult.website,
-                    phone: createResult.phone,
-                    company:{
-                        name: createResult.company.name,
-                    }
+                    name: createUser.name,
+                    email: createUser.email,
+                    website: createUser.website,
+                    company: {
+                        name: createUser.company.name,
+                    },
+                    phone: createUser.phone
             });
-            this._snackBar.openSnackBar(`Пользователь ${createResult.name} успешно создан!`, 'Закрыть');
+            this._snackBar.openSnackBar(`Пользователь ${ createUser.name } успешно создан!`, 'Закрыть');
         });
    }
 

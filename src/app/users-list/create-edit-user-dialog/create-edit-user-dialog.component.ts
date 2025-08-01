@@ -28,7 +28,8 @@ export class CreateEditUserDialogComponent{
         website: new FormControl(this.data?.user.website,[Validators.required, Validators.minLength(3)]),
         company: new FormGroup({
             name: new FormControl(this.data?.user.company.name,[Validators.required, Validators.minLength(2)]),
-        })
+        }),
+        phone: new FormControl(this.data?.user.phone,[Validators.required, Validators.minLength(8)]),
     });
 
     get userWithUpdatedFields(){

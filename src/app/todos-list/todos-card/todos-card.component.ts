@@ -7,7 +7,7 @@ import { SliceTextPipe } from "../../pipes/slice-text.pipe";
     templateUrl: './todos-card.component.html',
     styleUrl: './todos-card.component.scss',
     standalone: true,
-    imports:[SliceTextPipe],
+    imports:[ SliceTextPipe ],
 })
 
 export class TodosCardComponent{

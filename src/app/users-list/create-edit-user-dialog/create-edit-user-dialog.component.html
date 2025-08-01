@@ -25,6 +25,12 @@
             <mat-error>Пожалуйста, введите <strong>название компании</strong> корректно</mat-error>
          </mat-form-field>
       </div>
+
+      <mat-form-field>
+         <input matInput type="text" formControlName="phone" placeholder="Ex. +79881285322">
+         <mat-label>PHONE</mat-label>
+         <mat-error>Пожалуйста, введите <strong>телефон</strong> корректно</mat-error>
+      </mat-form-field>
       
       <button mat-button (click)="onCancel()">Отмена</button>
       <button mat-raised-button color="primary" [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields">
