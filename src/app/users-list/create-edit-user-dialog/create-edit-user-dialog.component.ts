@@ -4,6 +4,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MAT_DIALOG_DATA, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { User } from "../../user-interface.component";
 
 
@@ -13,7 +14,7 @@ import { User } from "../../user-interface.component";
     templateUrl: 'create-edit-user-dialog.component.html',
     styleUrl: 'create-edit-user-dialog.component.scss',
     standalone: true,
-    imports: [ReactiveFormsModule, MatButtonModule, MatInputModule, MatIconModule, MatDialogClose],
+    imports: [ReactiveFormsModule, MatButtonModule, MatInputModule, MatIconModule, MatDialogClose, MatTooltipModule],
 })
 
 export class CreateEditUserDialogComponent{
