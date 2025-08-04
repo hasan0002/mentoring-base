@@ -22,14 +22,14 @@ export class HeaderComponent {
   readonly Header1Item2: string = 'О компании';
   readonly Header1Item3: string = 'Каталог';
 
-  readonly Header12: string = MenuItem; //1 task
+  readonly Header12: string = MenuItem; 
 
-  isShowPhoto = true; // 2 task
+  isShowPhoto = true; 
 
-  readonly newPages = [5, 4, 3, 2, 1]; //3 task
+  readonly newPages = [5, 4, 3, 2, 1]; 
 
-  isUpperCase = false; //4 task
-  menuItems = [
+  isUpperCase = false; 
+  menuItems: string[] = [
     'Каталог',
     'Стройматериалы',
     'Инструменты',

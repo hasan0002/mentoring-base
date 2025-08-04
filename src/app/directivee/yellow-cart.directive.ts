@@ -4,7 +4,6 @@ import { Directive, ElementRef, HostListener, inject } from "@angular/core";
     selector: '[yellow-cart]',
     standalone: true,
 })
-
 export class YellowCartDirective{
     private readonly el = inject(ElementRef);
 
@@ -12,7 +11,7 @@ export class YellowCartDirective{
         this.el.nativeElement.style.backgroundColor = '#F0BA4E';
     }
 
-    @HostListener('mouseleave') onMouseLeavr(){
+    @HostListener('mouseleave') onMouseLeave(){
         this.el.nativeElement.style.backgroundColor = '';
     }
 }

@@ -33,10 +33,13 @@
       </mat-form-field>
       
       <button mat-button (click)="onCancel()">Отмена</button>
-      <button mat-raised-button color="primary"
-              [disabled]="form.invalid" 
-              [mat-dialog-close]="userWithUpdatedFields"
-              [matTooltip]="isEditMode ? 'Редактировать данные пользователя' : ''">
-        {{ isEditMode ? 'Редактировать' : 'Создать' }}
-        </button>
+      <button 
+         mat-raised-button 
+         color="primary"
+         [disabled]="form.invalid"
+         [mat-dialog-close]="userWithUpdatedFields"
+         [matTooltip]="isEditMode ? 'Редактировать данные пользователя' : ''"
+         >
+         {{ isEditMode ? 'Редактировать' : 'Создать' }}
+      </button>
 </form>
