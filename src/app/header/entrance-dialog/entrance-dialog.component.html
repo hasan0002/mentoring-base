@@ -1,0 +1,33 @@
+<div style="padding: 0px 0px 0px 20px;">
+     <h1>Войти</h1>
+     <form class="form" [formGroup]="form">
+          <mat-form-field>
+               <input matInput type="text" formControlName="nickname" placeholder="Ex. IvanDARK">
+               <mat-label>NICKNAME</mat-label>
+               <mat-error>Пожалуйста, введите <strong>имя</strong> корректно</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+               <input matInput type="text" formControlName="password">
+               <mat-label>PASSWORD</mat-label>
+               <mat-error>Пожалуйста, введите <strong>пароль</strong> (минимум 6 символов)</mat-error>
+          </mat-form-field>
+
+          <button 
+          mat-button 
+          (click)="loginAsAdmin()"
+          [disabled]="form.invalid"
+          >войти как администратор</button>
+          
+          <button 
+          mat-button
+          (click)="loginAsUser()" 
+          [disabled]="form.invalid"
+          >войти как юзер</button>
+
+          <button 
+          mat-button
+          (click)="onClose()"
+          >Отмена</button>
+     </form>
+</div>

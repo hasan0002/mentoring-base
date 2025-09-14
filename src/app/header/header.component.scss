@@ -25,12 +25,28 @@
 .header-left{
     display: flex;    
     align-items: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 .header-nav{
     display: flex;
-    gap: 24px;
+    gap: 10px;
+}
+
+.header-btn{
+    width: 120px;
+    height: 47px;
+    border: none;
+    color: white;
+    border-color: #F0BA4E;
+    border-style: solid;
+    background-color: #4B565E;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    border-width: 1px;
+    cursor: pointer;
 }
 
 .header-nav-item{

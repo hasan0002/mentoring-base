@@ -10,12 +10,17 @@
                 <div class="header-nav-item">{{ Header12 }}</div>
                 <div class="header-nav-item" *ngIf = "isShowCatalog">{{ Header1Item3 }}</div>
             </nav>
-            <div>
-                <button type="button" (click)="isShowCatalog = !isShowCatalog">Скрыть/Показать Каталог</button>
-                <button type="button" (click)="changeMenuText()">Изменить текст</button>
-                <button routerLink="/users">Пользователи</button>
+
+            <div class="header-nav">
+                <button type="button" (click)="isShowCatalog = !isShowCatalog" class="header-btn" yellow-cart>Скрыть/Показать Каталог</button>
+                <button type="button" (click)="changeMenuText()" class="header-btn" yellow-cart>Изменить текст</button>
+                <button routerLink="/users" class="header-btn" yellow-cart>Пользователи</button>
+                <button class="header-btn" yellow-cart *ngIf="!authService.isAdmin" (click)="openDialog()" >Войти</button>
+                <button class="header-btn" yellow-cart *ngIf="authService.isAdmin" (click)="authService.logOut()">Выход</button>
+                <button (click)="checkStatus()">Check</button>
             </div>
         </div>
+
         <div class="header-right">
             <div class="header-tel">
                 <img src="/assets/Phone.svg" alt="Phone" style="margin-right: 10px;">
@@ -32,12 +37,12 @@
         </div>
     </div>
 </div>
-<div class="header-yellow ">
+<div class="header-yellow">
     <div class="content-container-header">
         <div class="header-left2">
             <img src="/assets/light.svg" alt="">
             <nav class="header-nav">
-                <div class="header-nav-item" *ngFor="let item of menuItems">{{item}}</div>
+                <div class="header-nav-item" *ngFor="let item of menuItems">{{ item }}</div>
             </nav>
         </div>
         <div class="header-left">
