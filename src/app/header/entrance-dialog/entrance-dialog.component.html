@@ -13,21 +13,27 @@
                <mat-error>Пожалуйста, введите <strong>пароль</strong> (минимум 6 символов)</mat-error>
           </mat-form-field>
 
-          <button 
-          mat-button 
+          <button
+          mat-button
           (click)="loginAsAdmin()"
           [disabled]="form.invalid"
-          >войти как администратор</button>
-          
-          <button 
-          mat-button
-          (click)="loginAsUser()" 
-          [disabled]="form.invalid"
-          >войти как юзер</button>
+          >
+          Войти как администратор
+          </button>
 
-          <button 
+          <button
+          mat-button
+          (click)="loginAsUser()"
+          [disabled]="form.invalid"
+          >
+          Войти как пользователь
+          </button>
+
+          <button
           mat-button
           (click)="onClose()"
-          >Отмена</button>
+          >
+          Отмена
+          </button>
      </form>
 </div>

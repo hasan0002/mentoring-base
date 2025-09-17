@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { YellowCartDirective } from '../directivee/yellow-cart.directive';
 import { MatDialog } from '@angular/material/dialog';
 import { EntranceDialogComponent } from './entrance-dialog/entrance-dialog.component';
-import { AdminOrUser, AuthService } from '../userAuth.service';
+import { UserLogIn, AuthService } from '../userAuth.service';
 
 function CreateField(MenuItem: string) {
   return MenuItem;
@@ -19,25 +19,21 @@ const MenuItem: string = CreateField('О компании');
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent{
+export class HeaderComponent {
   readonly dialog = inject(MatDialog);
   readonly authService = inject(AuthService);
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EntranceDialogComponent);
-    dialogRef.afterClosed().subscribe((result: AdminOrUser)=> {
-      console.log('The dialog was closed', result);
+    dialogRef.afterClosed().subscribe((result: UserLogIn)=> {
     });
   }
 
   logOut(): void {
     this.authService.logOut();
-    
-    console.log('After LogOut: ', this.authService.isAdmin);
   }
 
   checkStatus() {
-    console.log('Current isAdmin in AppComponent:', this.authService.isAdmin);
     alert('Status: ' + (this.authService.isAdmin ? 'Admin' : 'User')); // Видимый тест
   }
 
