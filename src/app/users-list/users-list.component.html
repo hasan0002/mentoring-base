@@ -1,7 +1,7 @@
 <div class="content-container">
     <button mat-button="elevated" class="create-button" (click)="openDialog()">+ CREATE USER</button>
     <div class="user-block" >
-        <div *ngFor="let user of usersService.users$ | async">
+        <div *ngFor="let user of users$ | async">
             <app-user-card [user]="user" (deleteUser)="deleteUser($event)" (editUser)="editUser($event)" ></app-user-card>
         </div>
     </div>
